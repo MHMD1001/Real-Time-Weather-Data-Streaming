@@ -2,24 +2,37 @@
 The project aims to demonstrate a data streaming pipeline using Apache Kafka for data ingestion, Apache Spark for real-time data processing, and Apache Hive for data storage and querying. The pipeline fetches weather data from the OpenWeatherMap API, processes it in real-time using Spark, and stores the processed data in Hive for further analysis and visualization.
 
 
+## Architecture
+
 ![38f0a543-5c4e-4521-8239-ab9065a1db8d](https://github.com/MHMD1001/Real-Time-Weather-Data-Streaming/assets/113826367/52150bec-d0f3-4933-bccc-46c29399b0af)
 
-
-
-## Architecture
 The project architecture consists of several components:
 
-Producer: Python script that fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic.
-Kafka: Apache Kafka serves as the messaging system for data ingestion, where weather data is produced by the producer script and consumed by Spark.
-Consumer: Python script using PySpark that consumes data from Kafka, processes it, and writes it to both HDFS and Hive.
-HDFS: Hadoop Distributed File System (HDFS) is used for storing raw data.
-Spark: Apache Spark is employed for real-time data processing. It consumes data from Kafka, performs transformations, and writes the processed data to both HDFS and Hive.
-Hive: Apache Hive is used as a data warehouse. It stores the processed weather data in tabular form, making it queryable using SQL-like syntax.
-Superset: Apache Superset is an open-source data visualization tool. It connects to Hive to create interactive dashboards and visualizations based on the stored weather data.
+### Producer: 
+Python notebook that fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic.
+
+### Kafka:
+Apache Kafka serves as the messaging system for data ingestion, where weather data is produced by the producer script and consumed by Spark.
+
+### Consumer:
+Python script using PySpark that consumes data from Kafka, processes it, and writes it to both HDFS and Hive.
+
+### HDFS:
+Hadoop Distributed File System (HDFS) is used for storing raw data.
+
+### Spark:
+Apache Spark is employed for real-time data processing. It consumes data from Kafka, performs transformations, and writes the processed data to both HDFS and Hive.
+
+### Hive:
+Apache Hive is used as a data warehouse. It stores the processed weather data in tabular form, making it queryable using SQL-like syntax.
+
+### Superset:
+Apache Superset is an open-source data visualization tool. It connects to Hive to create interactive dashboards and visualizations based on the stored weather data.
+
 
 ## Workflow
-The producer script fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic named "sample".
-Spark continuously consumes data from the "sample" Kafka topic using structured streaming.
+The producer script fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic named "weather_data".
+Spark continuously consumes data from the "weather_data" Kafka topic using structured streaming.
 Spark processes the data, performs necessary transformations, and writes the processed data to both HDFS and Hive.
 The Hive table is created using a predefined schema, allowing easy querying and analysis of the stored weather data.
 Apache Superset connects to Hive to visualize the weather data, allowing users to create interactive dashboards and visualizations.
