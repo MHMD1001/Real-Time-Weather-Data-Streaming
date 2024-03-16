@@ -1,4 +1,4 @@
-# Real-Time-Weather-Data-Streaming
+ # Real-Time-Weather-Data-Streaming
 The project aims to demonstrate a data streaming pipeline using Apache Kafka for data ingestion, Apache Spark for real-time data processing, and Apache Hive for data storage and querying. The pipeline fetches weather data from the OpenWeatherMap API, processes it in real-time using Spark, and stores the processed data in Hive for further analysis and visualization.
 
 
@@ -18,10 +18,10 @@ Apache Kafka serves as the messaging system for data ingestion, where weather da
 Python script using PySpark that consumes data from Kafka, processes it, and writes it to both HDFS and Hive.
 
 #### HDFS:
-Hadoop Distributed File System (HDFS) is used for storing raw data.
+Hadoop Distributed File System (HDFS) is used for storing raw Hive data.
 
 #### Spark:
-Apache Spark is employed for real-time data processing. It consumes data from Kafka, performs transformations, and writes the processed data to both HDFS and Hive.
+Apache Spark is employed for real-time data processing. It consumes data from Kafka, performs transformations, and writes the processed data to Hive.
 
 #### Hive:
 Apache Hive is used as a data warehouse. It stores the processed weather data in tabular form, making it queryable using SQL-like syntax.
