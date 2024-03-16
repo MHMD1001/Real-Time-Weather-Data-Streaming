@@ -110,6 +110,7 @@ Open your web browser and go to http://localhost:8888 to access the Jupyter note
 Open the producer.ipynb notebook in the Jupyter interface.
 Follow the instructions within the notebook to execute the Kafka producer script.
 This script will continuously fetch weather data from the OpenWeatherMap API and stream it to the Kafka topic.
+
 Once the producer begins sending data to Kafka, you can access the Kafka Control Center UI using the URL "http://localhost:9021". Navigate to Brokers -> Topics, select the topic to which data is being sent, and proceed to Messages. Here, the Control Center actively listens to the Kafka Producer, allowing you to observe the data flow in real-time. This enables you to verify that the data is correctly transmitted to the Kafka Server and inspect its format, data types, and other relevant attributes.
 
 #### 3- Run Kafka Consumer Notebook
