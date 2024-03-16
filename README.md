@@ -33,7 +33,7 @@ Apache Superset is an open-source data visualization tool. It connects to Hive t
 ## Workflow
 The producer script fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic named "weather_data".
 Spark continuously consumes data from the "weather_data" Kafka topic using structured streaming.
-Spark processes the data, performs necessary transformations, and writes the processed data to both HDFS and Hive.
+Spark processes the data, performs necessary transformations, and writes the processed data to Hive table "weather_data" using HDFS as a data warehouse.
 The Hive table is created using a predefined schema, allowing easy querying and analysis of the stored weather data.
 Apache Superset connects to Hive to visualize the weather data, allowing users to create interactive dashboards and visualizations.
 
