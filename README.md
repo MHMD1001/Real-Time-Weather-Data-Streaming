@@ -8,25 +8,25 @@ The project aims to demonstrate a data streaming pipeline using Apache Kafka for
 
 The project architecture consists of several components:
 
-### Producer: 
+#### Producer: 
 Python notebook that fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic.
 
-### Kafka:
+#### Kafka:
 Apache Kafka serves as the messaging system for data ingestion, where weather data is produced by the producer script and consumed by Spark.
 
-### Consumer:
+#### Consumer:
 Python script using PySpark that consumes data from Kafka, processes it, and writes it to both HDFS and Hive.
 
-### HDFS:
+#### HDFS:
 Hadoop Distributed File System (HDFS) is used for storing raw data.
 
-### Spark:
+#### Spark:
 Apache Spark is employed for real-time data processing. It consumes data from Kafka, performs transformations, and writes the processed data to both HDFS and Hive.
 
-### Hive:
+#### Hive:
 Apache Hive is used as a data warehouse. It stores the processed weather data in tabular form, making it queryable using SQL-like syntax.
 
-### Superset:
+#### Superset:
 Apache Superset is an open-source data visualization tool. It connects to Hive to create interactive dashboards and visualizations based on the stored weather data.
 
 
