@@ -64,7 +64,12 @@ Apache Superset connects to Hive to visualize the weather data, allowing users t
    - Folder containing Spark binaries used to extend the Jupyter notebook image.
    - Dockerfile copies these binaries into the image to ensure compatibility with the Spark cluster.
 
-7. **README.md**:
+7.**Pipeline Trigger Shell Script (pipeline_trigger.sh)**:
+
+Shell script for triggering the data streaming pipeline.
+Allows users to execute the producer and consumer scripts via the Jupyter notebook container terminal
+
+8. **README.md**:
    - Markdown file providing instructions for setting up and running the project.
    - Includes information on installing dependencies, running Docker containers, and connecting services.
 
