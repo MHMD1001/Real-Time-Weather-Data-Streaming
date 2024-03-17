@@ -119,17 +119,28 @@ This command copies the notebooks into the /home/jovyan directory inside the Jup
 #### 1- Access Jupyter Notebook
 Open your web browser and go to http://localhost:8888 to access the Jupyter notebook interface. You should now see the copied notebooks (producer.ipynb and consumer1.ipynb) listed in the directory.
 
-#### 2- Run Kafka Producer Notebook
-Open the producer.ipynb notebook in the Jupyter interface.
-Follow the instructions within the notebook to execute the Kafka producer script.
-This script will continuously fetch weather data from the OpenWeatherMap API and stream it to the Kafka topic.
+#### 2- Run Producer and Consumer Notebooks
+To streamline the process of running the producer and consumer scripts, we provide a shell script that can be executed within the Jupyter notebook container's terminal. This script automates the execution of both notebooks, ensuring seamless data streaming and processing.
 
-Once the producer begins sending data to Kafka, you can access the Kafka Control Center UI using the URL "http://localhost:9021". Navigate to Brokers -> Topics, select the topic to which data is being sent, and proceed to Messages. Here, the Control Center actively listens to the Kafka Producer, allowing you to observe the data flow in real-time. This enables you to verify that the data is correctly transmitted to the Kafka Server and inspect its format, data types, and other relevant attributes.
+First, copy the shell script to the Jupyter notebook container by running the following command in your terminal:
+```bash
+docker cp ./pipline_trigger.sh jupyter-notebook:/home/jovyan
+```
+Now, navigate to the Jupyter notebook container's terminal. You can do this by clicking on the "New" dropdown menu on the right side of the Jupyter interface and selecting "Terminal." Alternatively, you can access the Jupyter terminal by running the following command in your local shell terminal:
+```bash
+docker exec -it jupyter-notebook bash
+```
+Once inside the terminal, execute the shell script by running the following command:
+```bash
+./pipline_trigger.sh
+```
+This script will sequentially execute the producer and consumer notebooks, initiating the data streaming and processing pipeline.
 
-#### 3- Run Kafka Consumer Notebook
-Open the consumer1.ipynb notebook in the Jupyter interface.
-Follow the instructions within the notebook to execute the Kafka consumer script.
-This script will consume data from the Kafka topic, parse it, process it, and write it to a Hive table for further analysis.
+#### 3- Monitor Data Flow
+After executing the notebooks, you can monitor the data flow by accessing the Kafka Control Center UI using the URL "http://localhost:9021". Navigate to Brokers -> Topics, select the topic to which data is being sent, and proceed to Messages. Here, you can observe the real-time data streaming and ensure that the data is correctly transmitted to the Kafka Server.
+
+By automating the execution of the notebooks, this streamlined approach simplifies the process of running the producer and consumer scripts, allowing for efficient data streaming and processing.
+
 
 
 ### Step 4 (Setting Up Apache Superset):
