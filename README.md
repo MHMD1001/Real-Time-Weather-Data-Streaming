@@ -47,9 +47,13 @@ Once the data is stored in Hive, it becomes available for visualization and anal
 
 ### Overall Workflow:
 The producer script fetches weather data from the OpenWeatherMap API and produces it to the "weather_data" Kafka topic.
+
 The consumer script consumes data from the Kafka topic, processes it, and writes it to both HDFS and Hive.
+
 The processed data is stored in Hive, where it becomes available for visualization and analysis using Apache Superset.
+
 Users can access Apache Superset to create interactive dashboards and visualizations based on the stored weather data, gaining insights into weather patterns and trends.
+
 This detailed workflow provides a comprehensive understanding of the data streaming pipeline, from data ingestion to visualization, highlighting the role of each component in the process.
 
 
