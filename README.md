@@ -40,7 +40,9 @@ The data ingestion process begins with the Kafka producer script, which fetches 
 Upon receiving data from the Kafka producer, the Kafka consumer script, implemented as another Jupyter notebook (consumer.ipynb), consumes the data from the "weather_data" Kafka topic. The consumer script reads the incoming messages, parses them, and performs any necessary data transformations. This may include converting temperature units, calculating additional weather metrics, or filtering out irrelevant data points.
 
 #### 3. Data Storage:
-After processing the data, the consumer script writes the transformed data to both HDFS (Hadoop Distributed File System) and Hive. HDFS is used for storing raw weather data, providing fault tolerance and scalability. Hive, on the other hand, acts as a data warehouse, storing the processed weather data in tabular format. The data is stored in a Hive table named "weather_data," which is predefined with a schema that matches the structure of the processed data.
+After processing the data, the consumer script writes the transformed data directly to Hive, utilizing HDFS as the underlying storage layer. This approach leverages the scalability and fault tolerance of HDFS while utilizing Hive as a data warehouse to store the processed weather data in a structured tabular format.
+
+The data is stored in a Hive table named "weather_data," which is predefined with a schema that matches the structure of the processed data.
 
 #### 4. Data Visualization:
 Once the data is stored in Hive, it becomes available for visualization and analysis. Apache Superset, an open-source data visualization tool, is integrated into the pipeline to facilitate the creation of interactive dashboards and visualizations based on the stored weather data. Superset connects to Hive to access the weather data, allowing users to create dynamic dashboards that provide insights into weather patterns, trends, and anomalies.
