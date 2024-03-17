@@ -31,11 +31,28 @@ Apache Superset is an open-source data visualization tool. It connects to Hive t
 
 
 ## Workflow
-The producer script fetches weather data from the OpenWeatherMap API and produces it to a Kafka topic named "weather_data".
-Spark continuously consumes data from the "weather_data" Kafka topic using structured streaming.
-Spark processes the data, performs necessary transformations, and writes the processed data to Hive table "weather_data" using HDFS as a data warehouse.
-The Hive table is created using a predefined schema, allowing easy querying and analysis of the stored weather data.
-Apache Superset connects to Hive to visualize the weather data, allowing users to create interactive dashboards and visualizations.
+The real-time weather data streaming pipeline involves several steps, from data ingestion to visualization. Below is a detailed overview of each step:
+
+#### 1. Data Ingestion:
+The data ingestion process begins with the Kafka producer script, which fetches weather data from the OpenWeatherMap API. The producer script, implemented as a Jupyter notebook (producer.ipynb), continuously queries the API for weather data and produces it to a Kafka topic named "weather_data." Each message produced to the Kafka topic contains information about the weather conditions in a specific city, including temperature, humidity, wind speed, and visibility.
+
+#### 2. Data Processing:
+Upon receiving data from the Kafka producer, the Kafka consumer script, implemented as another Jupyter notebook (consumer.ipynb), consumes the data from the "weather_data" Kafka topic. The consumer script reads the incoming messages, parses them, and performs any necessary data transformations. This may include converting temperature units, calculating additional weather metrics, or filtering out irrelevant data points.
+
+#### 3. Data Storage:
+After processing the data, the consumer script writes the transformed data to both HDFS (Hadoop Distributed File System) and Hive. HDFS is used for storing raw weather data, providing fault tolerance and scalability. Hive, on the other hand, acts as a data warehouse, storing the processed weather data in tabular format. The data is stored in a Hive table named "weather_data," which is predefined with a schema that matches the structure of the processed data.
+
+#### 4. Data Visualization:
+Once the data is stored in Hive, it becomes available for visualization and analysis. Apache Superset, an open-source data visualization tool, is integrated into the pipeline to facilitate the creation of interactive dashboards and visualizations based on the stored weather data. Superset connects to Hive to access the weather data, allowing users to create dynamic dashboards that provide insights into weather patterns, trends, and anomalies.
+
+### Overall Workflow:
+The producer script fetches weather data from the OpenWeatherMap API and produces it to the "weather_data" Kafka topic.
+The consumer script consumes data from the Kafka topic, processes it, and writes it to both HDFS and Hive.
+The processed data is stored in Hive, where it becomes available for visualization and analysis using Apache Superset.
+Users can access Apache Superset to create interactive dashboards and visualizations based on the stored weather data, gaining insights into weather patterns and trends.
+This detailed workflow provides a comprehensive understanding of the data streaming pipeline, from data ingestion to visualization, highlighting the role of each component in the process.
+
+
 
 
 ## Project Files
