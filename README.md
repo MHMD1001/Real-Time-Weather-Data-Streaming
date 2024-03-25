@@ -98,9 +98,9 @@ This detailed workflow provides a comprehensive understanding of the data stream
 
 ## Project Setup Steps
 Before beginning this project, make sure you have the following prerequisites:
-1- A machine with a minimum of 12GB of RAM available.```\n```
-2- Docker installed on your machine.
-3- Docker Compose installed on your machine.
+1- A machine with a minimum of 12GB of RAM available.                                                                                                       
+2- Docker installed on your machine.                                                                                            
+3- Docker Compose installed on your machine.                                                                                        
 4- OpenWeatherMap API key
 
 
